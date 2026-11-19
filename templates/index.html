@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Sistema de Tarefas</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Meu Sistema de Tarefas</h1>
+
+        <p>Organize suas atividades diárias</p>
+
+        <div class="formulario">
+            <input
+                type="text"
+                id="nomeTarefa"
+                placeholder="Digite uma nova tarefa"
+            >
+
+            <button onclick="adicionarTarefa()">
+                Adicionar
+            </button>
+        </div>
+
+        <ul id="listaTarefas"></ul>
+    </div>
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
