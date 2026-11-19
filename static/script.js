@@ -6,8 +6,19 @@ async function carregarTarefas() {
 
     lista.innerHTML = "";
 
+    document.getElementById("contador").textContent =
+        `Total de tarefas: ${tarefas.length}`;
+
+    if (tarefas.length === 0) {
+        const mensagem = document.createElement("li");
+        mensagem.textContent = "Nenhuma tarefa cadastrada.";
+        lista.appendChild(mensagem);
+    }
+
     tarefas.forEach(tarefa => {
         const item = document.createElement("li");
+
+        const informacoes = document.createElement("div");
 
         const nome = document.createElement("span");
         nome.textContent = tarefa.nome;
@@ -15,6 +26,13 @@ async function carregarTarefas() {
         if (tarefa.concluida) {
             nome.classList.add("concluida");
         }
+
+        const data = document.createElement("small");
+        data.textContent = `Criada em: ${tarefa.data_criacao}`;
+
+        informacoes.appendChild(nome);
+        informacoes.appendChild(document.createElement("br"));
+        informacoes.appendChild(data);
 
         const concluir = document.createElement("button");
         concluir.textContent = "Concluir";
@@ -24,7 +42,7 @@ async function carregarTarefas() {
         excluir.textContent = "Excluir";
         excluir.onclick = () => excluirTarefa(tarefa.id);
 
-        item.appendChild(nome);
+        item.appendChild(informacoes);
         item.appendChild(concluir);
         item.appendChild(excluir);
 
