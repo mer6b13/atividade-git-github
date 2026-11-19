@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -21,7 +22,6 @@ def adicionar_tarefa():
     global proximo_id
 
     dados = request.get_json()
-
     nome = dados.get("nome", "").strip()
 
     if not nome:
@@ -30,7 +30,8 @@ def adicionar_tarefa():
     tarefa = {
         "id": proximo_id,
         "nome": nome,
-        "concluida": False
+        "concluida": False,
+        "data_criacao": datetime.now().strftime("%d/%m/%Y %H:%M")
     }
 
     tarefas.append(tarefa)
