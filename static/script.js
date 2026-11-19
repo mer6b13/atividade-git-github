@@ -6,6 +6,10 @@ async function carregarTarefas() {
 
     lista.innerHTML = "";
 
+    // Atualiza o contador de tarefas
+    document.getElementById("contador").textContent =
+        `Total de tarefas: ${tarefas.length}`;
+
     tarefas.forEach(tarefa => {
         const item = document.createElement("li");
 
