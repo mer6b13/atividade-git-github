@@ -6,6 +6,16 @@ async function carregarTarefas() {
 
     lista.innerHTML = "";
 
+    document.getElementById("contador").textContent =
+        `Total de tarefas: ${tarefas.length}`;
+
+    // Mensagem quando não existem tarefas
+    if (tarefas.length === 0) {
+        const mensagem = document.createElement("li");
+        mensagem.textContent = "Nenhuma tarefa cadastrada.";
+        lista.appendChild(mensagem);
+    }
+
     tarefas.forEach(tarefa => {
         const item = document.createElement("li");
 
